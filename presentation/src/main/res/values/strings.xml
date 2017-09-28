@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">soupapp</string>
+    <string name="action_settings">Settings</string>
+    <string name="about_title">лала ла</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>
