@@ -7,10 +7,28 @@ package com.sktl.sm.domain.entity;
 public class PointerDomain {
     private String idPointer;
     private String name;
-    private int latitude;
-    private int longitude;
+    private double latitude;
+    private double longitude;
     private String image;
     private String description;
+    private UserDomain createdByUserDomain;//здесь дополнительная таблица на backendless
+    private boolean isVisible;//здесь дополнительная таблица на backendless
+
+    public UserDomain getCreatedByUserDomain() {
+        return createdByUserDomain;
+    }
+
+    public void setCreatedByUserDomain(UserDomain createdByUserDomain) {
+        this.createdByUserDomain = createdByUserDomain;
+    }
+
+    public boolean getIsVisible() {
+        return isVisible;
+    }
+
+    public void setIsVisible(boolean visible) {
+        isVisible = visible;
+    }
 
     public String getIdPointer() {
         return idPointer;
@@ -28,19 +46,19 @@ public class PointerDomain {
         this.name = name;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 

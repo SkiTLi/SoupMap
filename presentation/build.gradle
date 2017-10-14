@@ -1,4 +1,27 @@
 apply plugin: 'com.android.application'
+//(для fabric
+apply plugin: 'io.fabric'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+
+
+repositories {
+    //mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+//)для fabric
+
 
 android {
     compileSdkVersion 26
@@ -39,4 +62,10 @@ dependencies {
     testCompile    'junit:junit:4.12'
     //подключили биндинг:
     annotationProcessor 'com.android.databinding:compiler:2.3.0'
+    //для fabric
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+
+    compile project(path: ':domain')
 }

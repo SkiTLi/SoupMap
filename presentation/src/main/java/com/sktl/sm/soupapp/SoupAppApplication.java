@@ -2,6 +2,7 @@ package com.sktl.sm.soupapp;
 
 import android.app.Application;
 
+
 //import com.example.user_pc.testsktl.di.AppComponent;
 //import com.example.user_pc.testsktl.di.AppModule;
 //import com.example.user_pc.testsktl.di.DaggerAppComponent;
@@ -24,6 +25,9 @@ public class SoupAppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.

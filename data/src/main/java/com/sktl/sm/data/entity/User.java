@@ -11,26 +11,8 @@ public class User {
     private String username;
     private String password;
     private String imageUser;
-    private String  email;
-    private String  additionalInformation;
-    private List<Pointer> pointerListUser;
-    private List<User> friendListUser;
-
-    public List<Pointer> getPointerListUser() {
-        return pointerListUser;
-    }
-
-    public void setPointerListUser(List<Pointer> pointerListUser) {
-        this.pointerListUser = pointerListUser;
-    }
-
-    public List<User> getFriendListUser() {
-        return friendListUser;
-    }
-
-    public void setFriendListUser(List<User> friendListUser) {
-        this.friendListUser = friendListUser;
-    }
+    private String email;
+    private String additionalInformation;
 
     public String getIdUser() {
         return idUser;

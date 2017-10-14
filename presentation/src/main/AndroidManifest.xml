@@ -48,6 +48,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+<!--для fabric-->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="00d0bda205b26ea088d843c2b8a42bd214ac9ac5" />
     </application>
 
 </manifest>
