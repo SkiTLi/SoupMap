@@ -1,3 +1,8 @@
+// 17/11/21 есть загвоздка: при GET запросе всех меток и пользователей, -
+// ... на выходе получаю только 10 а не все //17/11/22 решено (теперь получаю 100 записей)
+// 17/11/24 нужно переделать GetUserUseCase чтобы он заработал (сделать возврат пользователя по id )
+// 17/11/29 нужно запустить GetUserUseCase в основном активити (походу он готов)
+
 package com.sktl.sm.soupapp;
 
 import android.app.Activity;
@@ -39,13 +44,12 @@ public class VeryFirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                только так нужно передовать инфу в активити через интент
-
                 Intent intent = new Intent(VeryFirstActivity.this, MainActivity.class);
 
 //                intent.putExtra(MainActivity.RESULT_OK, 123));
-                Log.d("eee", "Ошибочка вышла до");
+                Log.d("eee", " до startActivity(intent);");
                 startActivity(intent);
-                Log.d("eee", "Ошибочка вышла после");
+                Log.d("eee", " после startActivity(intent);");
             }
         });
 

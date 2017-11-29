@@ -7,7 +7,7 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 
-public abstract class PointerUseCase<InParam, OutParam> {
+public abstract class UseCase<InParam, OutParam> {
 
     private Disposable mDisposable;
 

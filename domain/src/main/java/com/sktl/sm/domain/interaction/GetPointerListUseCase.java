@@ -1,6 +1,8 @@
 package com.sktl.sm.domain.interaction;
 
 
+import android.util.Log;
+
 import com.sktl.sm.data.entity.Pointer;
 import com.sktl.sm.data.net.RestService;
 
@@ -14,21 +16,23 @@ import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 
-public class GetPointerListUseCase extends PointerUseCase<Id, List<PointerDomain>> {
+public class GetPointerListUseCase extends UseCase<Id, List<PointerDomain>> {
 
     @Override
     protected Observable<List<PointerDomain>> buildUseCase(Id param) {
         return RestService
                 .getInstance()
                 .getPointersService()
-                .map(new Function<List<Pointer>, List<PointerDomain>>() {
+                .map(new Function< List<Pointer> ,  List<PointerDomain> >() {
                     @Override
-                    public List<PointerDomain> apply(@NonNull List<Pointer> pointers)
+                    public List<PointerDomain> apply( List<Pointer> pointers)
                             throws Exception {
+                        Log.d("eee", " в GetPointerListUseCase коллекция List<Pointer> pointers содержит элементов: "+ pointers.size());
                         List<PointerDomain> list = new ArrayList<>();
                         for (Pointer pointerOfList : pointers) {
                             list.add(convert(pointerOfList));
                         }
+                        Log.d("eee", " в GetPointerListUseCase коллекция  List<PointerDomain> list содержит элементов: "+ list.size());
                         return list;
                     }
                 });
@@ -42,7 +46,7 @@ public class GetPointerListUseCase extends PointerUseCase<Id, List<PointerDomain
         pointerDomain.setImage(pointer.getImage());
         pointerDomain.setLatitude(pointer.getLatitude());
         pointerDomain.setLongitude(pointer.getLongitude());
-        pointerDomain.setCreatedByUserDomain(null);
+//        pointerDomain.setCreatedByUserDomain(null);
         pointerDomain.setIsVisible(true);
 
         return pointerDomain;

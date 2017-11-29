@@ -4,6 +4,7 @@ package com.sktl.sm.data.net;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sktl.sm.data.entity.Pointer;
+import com.sktl.sm.data.entity.User;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -39,7 +40,7 @@ public class RestService {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                //                .addInterceptor(logging)//не могу создать
+//                                .addInterceptor(logging)//не могу создать
                 .readTimeout(10, TimeUnit.SECONDS)//если в течении 10 сеунд ответа нет то запрос считать неправильным
                 .connectTimeout(10, TimeUnit.SECONDS)//если в течении 10 секнд не можем подключиться к серверу
                 .addInterceptor(logging)
@@ -64,7 +65,7 @@ public class RestService {
     }
 
 
-        //это уже дополнительная накрутка для регистрации
+    //это уже дополнительная накрутка для регистрации
 //    public Observable<AccessTokenData> register(RegisterData registerData) {
 //
 //        //заменить на реальный вызов
@@ -74,7 +75,26 @@ public class RestService {
 //    }
 
 
-    public Observable<Void> saveProfileService(Pointer pointer) {
+    public Observable<Void> savePointerService(Pointer pointer) {
         return restApi.savePointer(pointer);
+    }
+
+    //пробный методы
+
+    public Observable<List<User>> getUsersService() {
+        return restApi.getUsers();
+    }
+
+
+    public Observable<Void> saveUserService(User user) {
+        return restApi.saveUser(user);
+    }
+
+    public Observable<Void> saveUserPointerService(User user, Pointer pointer, boolean isVisible) {
+        return restApi.saveUserPointer(user.getIdUser(), pointer.getIdPointer(), isVisible);
+    }
+//171128 добавил:
+    public Observable<List<User>> getUserService(String idUser) {
+        return restApi.getUser(idUser);
     }
 }
