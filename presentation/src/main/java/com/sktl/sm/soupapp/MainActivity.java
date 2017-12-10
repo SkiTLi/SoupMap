@@ -1,7 +1,9 @@
 package com.sktl.sm.soupapp;
 
 import android.content.Intent;
+import android.databinding.ObservableField;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -10,11 +12,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
-
+import android.widget.Toast;
 
 
 //public class MainActivity extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class MainActivity extends FragmentActivity {
 
     MapsActivity mapsActivity;
 
+    public static final String USERNAME_IN_MAIN = "////RESULT////";
+    public static final String PASSWORD_IN_MAIN = "////GROGER////";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,21 @@ public class MainActivity extends FragmentActivity {
         toolbar.setLogo(R.drawable.ic_soup_100dp);
         mapsActivity = new MapsActivity();
 
+//171129(
+        //прием данных из VeryFirstActivity
+        String usernameFromVeryFirst = getIntent().getStringExtra(USERNAME_IN_MAIN);
+        String passwordFromVeryFirst = getIntent().getStringExtra(PASSWORD_IN_MAIN);
+        Log.d("eee", "передался из VeryFirstActivity в MainActivity intent = " + usernameFromVeryFirst);
+        //передача данных из MainActivity в MapsActivity
+        Bundle bundle1 = new Bundle();
+        bundle1.putString(MapsActivity.KEY_USERNAME, usernameFromVeryFirst);
+        bundle1.putString(MapsActivity.KEY_PASSWORD, passwordFromVeryFirst);
+        mapsActivity.setArguments(bundle1);
+
+        Log.d("eee", " в MainActivity bundle1(KEY_USERNAME) = " + bundle1.get(MapsActivity.KEY_USERNAME));
+        Log.d("eee", " в MainActivity bundle1(KEY_PASSWORD) = " + bundle1.get(MapsActivity.KEY_PASSWORD));
+
+//171129)
 
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +62,6 @@ public class MainActivity extends FragmentActivity {
                         new SpinerActivity(), true);
             }
         });
-
 
 
         showFragment(getSupportFragmentManager(),

@@ -6,20 +6,19 @@ import android.util.Log;
 import com.sktl.sm.data.entity.Pointer;
 import com.sktl.sm.data.net.RestService;
 
-import com.sktl.sm.domain.entity.Id;
+import com.sktl.sm.domain.entity.IdDomain;
 import com.sktl.sm.domain.entity.PointerDomain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 
-public class GetPointerListUseCase extends UseCase<Id, List<PointerDomain>> {
+public class GetPointerListUseCase extends UseCase<IdDomain, List<PointerDomain>> {
 
     @Override
-    protected Observable<List<PointerDomain>> buildUseCase(Id param) {
+    protected Observable<List<PointerDomain>> buildUseCase(IdDomain param) {
         return RestService
                 .getInstance()
                 .getPointersService()

@@ -1,11 +1,9 @@
 package com.sktl.sm.domain.interaction;
 
 
-import com.sktl.sm.data.entity.Pointer;
 import com.sktl.sm.data.entity.User;
 import com.sktl.sm.data.net.RestService;
-import com.sktl.sm.domain.entity.Id;
-import com.sktl.sm.domain.entity.PointerDomain;
+import com.sktl.sm.domain.entity.IdDomain;
 import com.sktl.sm.domain.entity.UserDomain;
 
 import java.util.ArrayList;
@@ -16,10 +14,10 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 
 
-public class GetUsersListUseCase extends UseCase<Id, List<UserDomain>> {
+public class GetListUsersUseCase extends UseCase<IdDomain, List<UserDomain>> {
 
     @Override
-    protected Observable<List<UserDomain>> buildUseCase(Id param) {
+    protected Observable<List<UserDomain>> buildUseCase(IdDomain param) {
         return RestService
                 .getInstance()
                 .getUsersService()
@@ -27,7 +25,7 @@ public class GetUsersListUseCase extends UseCase<Id, List<UserDomain>> {
                     @Override
                     public List<UserDomain> apply(@NonNull List<User> users)
                             throws Exception {
-                        List<UserDomain> list = new ArrayList<>(10000);
+                        List<UserDomain> list = new ArrayList<>();
                         for (User userOfList : users) {
                             list.add(convert(userOfList));
                         }

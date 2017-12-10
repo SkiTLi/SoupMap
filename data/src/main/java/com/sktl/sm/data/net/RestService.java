@@ -1,8 +1,7 @@
 package com.sktl.sm.data.net;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.sktl.sm.data.entity.IdUF;
 import com.sktl.sm.data.entity.Pointer;
 import com.sktl.sm.data.entity.User;
 
@@ -85,6 +84,12 @@ public class RestService {
         return restApi.getUsers();
     }
 
+    //171204 добавил:
+    //плохо работало
+//    public Observable<List<User>> getUserFriendsService(String idUser) {
+//        return restApi.getUserFriends(idUser);
+//    }
+
 
     public Observable<Void> saveUserService(User user) {
         return restApi.saveUser(user);
@@ -93,8 +98,15 @@ public class RestService {
     public Observable<Void> saveUserPointerService(User user, Pointer pointer, boolean isVisible) {
         return restApi.saveUserPointer(user.getIdUser(), pointer.getIdPointer(), isVisible);
     }
-//171128 добавил:
-    public Observable<List<User>> getUserService(String idUser) {
+
+    //171128 добавил:
+    public Observable<List<User>> getUserByIdService(String idUser) {
         return restApi.getUser(idUser);
     }
+    //071210 добавил:
+    public Observable<List<IdUF>> getUserFriendsService(String idUser) {
+        return restApi.getUserFriends(idUser);
+    }
+
+
 }
