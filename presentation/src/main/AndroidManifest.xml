@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".SoupAppApplication"
         android:allowBackup="true"
@@ -19,13 +20,16 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/about_title" />
+
+        <activity
+            android:name=".RegistrationActivity"
+            android:label="regSktl" />
         <activity
             android:name=".SpinerActivity"
             android:label="@string/about_title" />
@@ -48,7 +52,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
-<!--для fabric-->
+        <!--для fabric-->
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="00d0bda205b26ea088d843c2b8a42bd214ac9ac5" />

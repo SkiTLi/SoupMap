@@ -8,14 +8,7 @@ import android.support.annotation.Nullable;
 
 abstract public class BaseActivity extends Activity {
 
-//    это вью модель
-//    поэтому она должна знать когда активити открыта/закрыта когда онпауз когда онрезюм
-
-
-
-
-    protected BaseViewModel viewModelInBaseActivity; //инициилизируется в классе-аследнике
-
+    protected BaseViewModel viewModelInBaseActivity;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

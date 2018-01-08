@@ -1,5 +1,4 @@
-// 17/11/21 есть загвоздка: при GET запросе всех меток и пользователей, -
-// ... на выходе получаю только 10 а не все //17/11/22 решено (теперь получаю 100 записей)
+
 // 17/11/24 нужно переделать GetUserByIdUseCase чтобы он заработал (сделать возврат пользователя по id )
 // 17/11/29 нужно запустить GetUserByIdUseCase в основном активити (походу он готов)
 // 17/11/30 нужно сделать передачу логина и пароля из VeryFirstActivity
@@ -8,7 +7,9 @@
 // ... для идентификации пользователя
 // 17/12/04 нужно подготовить GetListFriendsOfUserUseCase (сейчас он не работает)//17/12/10 сделано
 // 17/12/10 нужно сделать активити регистрации пользователя (и чтобы пользователь добавлялся в backendless)
-
+// 17/12/19 нужно переписать RegistrationActivity чтобы оно отсылало через
+// ... backendless (его я уже настроил) автоматический отсыл сообщений (есть скриншоты и закладки)
+// 17/12/27
 
 package com.sktl.sm.soupapp;
 
@@ -58,6 +59,24 @@ public class VeryFirstActivity extends AppCompatActivity {
                 Intent intent = new Intent(VeryFirstActivity.this, MainActivity.class);
                 intent.putExtra(MainActivity.USERNAME_IN_MAIN, editText1PersonName.get());
                 intent.putExtra(MainActivity.PASSWORD_IN_MAIN, editText2Password.get());
+
+                Log.d("eee", " до startActivity(intent);");
+                startActivity(intent);
+                Log.d("eee", " после startActivity(intent);");
+            }
+        });
+
+//просто меняет местами два введенных поля (потом убрать)
+        binding.textView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//              передает инфу в мэйнактивити( через интент)
+                //поместили в поле введенный editText1PersonName текст в активити
+                editText1PersonName.set(binding.editText2.getText().toString());
+                editText2Password.set(binding.editText1.getText().toString());
+                Intent intent = new Intent(VeryFirstActivity.this, RegistrationActivity.class);
+//                intent.putExtra(RegistrationActivity.USERNAME_IN_REGISTRATION, editText1PersonName.get());
+//                intent.putExtra(RegistrationActivity.PASSWORD_IN_REGISTRATION, editText2Password.get());
 
                 Log.d("eee", " до startActivity(intent);");
                 startActivity(intent);

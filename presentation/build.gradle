@@ -11,6 +11,8 @@ buildscript {
     dependencies {
         classpath 'io.fabric.tools:gradle:1.+'
     }
+
+
 }
 
 
@@ -52,14 +54,18 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    
 
-    compile    'com.android.support:appcompat-v7:26.+'
-    compile    'com.android.support.constraint:constraint-layout:1.0.2'
-    compile    'com.android.support:design:26.+'
+
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.+'
+
+    //для backendless
+    compile 'com.backendless:backendless:3.0.+'
+
     //карты
-    compile    'com.google.android.gms:play-services-maps:10.2.6'
-    testCompile    'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-maps:10.2.6'
+    testCompile 'junit:junit:4.12'
     //подключили биндинг:
     annotationProcessor 'com.android.databinding:compiler:2.3.0'
     //для fabric
@@ -68,4 +74,32 @@ dependencies {
     }
 
     compile project(path: ':domain')
+
+
+    //можно писать и двойные и одинарные ковочки
+    compile project(path: ':domain')
+    
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.github.bumptech.glide:volley-integration:1.4.0@aar'
+    compile 'com.mcxiaoke.volley:library:1.0.8'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.2'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.google.dagger:dagger:2.8'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    annotationProcessor 'com.android.databinding:compiler:2.3.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+
+
+
 }

@@ -240,7 +240,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                             for (IdDomain idDomain : listOfFriendId) {
 
 
-                                getUserByIdUseCase.execute(idDomain.getId2(),new DisposableObserver<UserDomain>() {
+                                getUserByIdUseCase.execute(idDomain.getId2(), new DisposableObserver<UserDomain>() {
 
 
                                     @Override
@@ -267,7 +267,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                                 });
 
 
-                                    Log.d("eee", "ваш ID: "
+                                Log.d("eee", "ваш ID: "
                                         + idDomain.getId1() + ", а "
                                         + j + "-й ID вашего друга: "
                                         + idDomain.getId2()
@@ -291,7 +291,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
                         }
                     });
 
-
+                    //этот метод тоже будет нужен в последствии
 //                    saveUserPointerUseCase.execute(pointerDomain, new DisposableObserver<Void>() {
 //                        @Override
 //                        public void onNext(@NonNull Void aVoid) {
@@ -342,7 +342,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         });
 
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Minsk and move the camera
         LatLng zeroKilometerMinsk = new LatLng(53.902229, 27.561978);
         mMap.addMarker(new MarkerOptions().position(zeroKilometerMinsk).title("zero kilometer of Minsk " + zeroKilometerMinsk.toString()));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(zeroKilometerMinsk));

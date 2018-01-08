@@ -2,6 +2,8 @@ package com.sktl.sm.soupapp;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
+
 
 //import com.example.user_pc.testsktl.di.AppComponent;
 //import com.example.user_pc.testsktl.di.AppModule;
@@ -16,34 +18,23 @@ import android.app.Application;
  */
 
 public class SoupAppApplication extends Application {
-
-//public static AppComponent appComponent;
-
-
     //здесь все инициализируется единожды при старте приложения
-    //глобальный контеккст
+    //глобальный контекст
     @Override
     public void onCreate() {
         super.onCreate();
 
 
 
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return;
-//        }
-//        LeakCanary.install(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
         // Normal app init code...
 
-        //инициализируем реалэм
-//        Realm.init(this);
 
-        //nr это здесь то  и находится все это будет в слое presentation
-
-//        appComponent = DaggerAppComponent.builder()
-//                .appModule(new AppModule(this))
-//                .build();
     }
 }
 

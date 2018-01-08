@@ -19,7 +19,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
-//public class MainActivity extends AppCompatActivity {
+
 public class MainActivity extends FragmentActivity {
 
     MapsActivity mapsActivity;
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity {
         toolbar.setLogo(R.drawable.ic_soup_100dp);
         mapsActivity = new MapsActivity();
 
-//171129(
+
         //прием данных из VeryFirstActivity
         String usernameFromVeryFirst = getIntent().getStringExtra(USERNAME_IN_MAIN);
         String passwordFromVeryFirst = getIntent().getStringExtra(PASSWORD_IN_MAIN);
@@ -53,7 +53,6 @@ public class MainActivity extends FragmentActivity {
         Log.d("eee", " в MainActivity bundle1(KEY_USERNAME) = " + bundle1.get(MapsActivity.KEY_USERNAME));
         Log.d("eee", " в MainActivity bundle1(KEY_PASSWORD) = " + bundle1.get(MapsActivity.KEY_PASSWORD));
 
-//171129)
 
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
